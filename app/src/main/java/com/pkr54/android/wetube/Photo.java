@@ -5,4 +5,7 @@ public class Photo {
     public Photo(int imageResId){
         mImageResId = imageResId;
     }
+    public int getImageResId(){
+        return mImageResId;
+    }
 }
