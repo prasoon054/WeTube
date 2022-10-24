@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView=findViewById(R.id.parent_view);
         mFollowingNames=getFollowingNames();
         mCategoriesArrayList=new ArrayList<>();
+
+        // To remove the dark color of clicked item on bnv
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavViewBar);
+        bottomNavigationView.setItemIconTintList(null);
+
         int mFollowing=getNumberOfFollowing();
         for(int i=0; i<mFollowing; i++){
             ArrayList<Photo> currAccount=new ArrayList<>();
