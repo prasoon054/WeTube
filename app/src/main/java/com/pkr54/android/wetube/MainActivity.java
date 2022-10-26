@@ -22,11 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView=findViewById(R.id.parent_view);
         mFollowingNames=getFollowingNames();
         mCategoriesArrayList=new ArrayList<>();
-
-        // To remove the dark color of clicked item on bnv
-        BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavViewBar);
-        bottomNavigationView.setItemIconTintList(null);
-
+        setUpBottomNavigationView();
         int mFollowing=getNumberOfFollowing();
         for(int i=0; i<mFollowing; i++){
             ArrayList<Photo> currAccount=new ArrayList<>();
@@ -230,6 +226,13 @@ public class MainActivity extends AppCompatActivity {
         Will be used at a later stage to find the count of posts of a specific account.
         */
         return 11;
+    }
+    
+    private void setUpBottomNavigationView(){
+        // To remove the dark color of clicked item on bnv
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavViewBar);
+        bottomNavigationView.setItemIconTintList(null);
+        BottomNavigationViewHelper.enableNavigation(MainActivity.this, bottomNavigationView);
     }
 
     private ArrayList<String> getFollowingNames(){
